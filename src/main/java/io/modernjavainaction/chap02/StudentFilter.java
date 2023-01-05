@@ -18,6 +18,27 @@ public class StudentFilter {
 
         List<Student> nameStartsFromJ = findNameStartsFromJ(students,'J');
         System.out.println(nameStartsFromJ);
+        List<Student> studentsBasedOnGivenAge = findStudentsBasedOnGivenAge(students, 22);
+        System.out.println(studentsBasedOnGivenAge);
+        List<Student> nameStartsFromJ_new = findNameStartsFromJ_new(students, new FindNameStartsFromGivenChar());
+        System.out.println("this is from the abstraction: \n"+nameStartsFromJ_new);
+
+
+    }
+
+    private static List<Student> findNameStartsFromJ_new(List<Student> students, StudentPredicate p) {
+        List<Student> result = new ArrayList<>();
+//        for(Student student : students){
+//            if(student.getFirstName().charAt(0) == j)
+//                result.add(student);
+//        }
+//        return result;
+        for(Student student : students){
+            if(p.filterStudents(student)){
+                result.add(student);
+            }
+        }
+        return result;
     }
 
     private static List<Student> findNameStartsFromJ(List<Student> students, char j) {
@@ -28,9 +49,26 @@ public class StudentFilter {
         }
         return result;
     }
+
+    private static List<Student> findStudentsBasedOnGivenAge(List<Student> students, int age) {
+        List<Student> result = new ArrayList<>();
+        for(Student student : students){
+            if(student.getAge() == age)
+                result.add(student);
+        }
+        return result;
+    }
 }
 
-interface SelectStudents {
+class FindNameStartsFromGivenChar implements StudentPredicate {
+
+    @Override
+    public boolean filterStudents(Student student) {
+        return student.getFirstName().charAt(0) == 'J';
+    }
+}
+
+interface StudentPredicate {
     boolean filterStudents(Student student);
 }
 
