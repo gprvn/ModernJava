@@ -1,0 +1,8 @@
+Summary:
+->  Behavior parameterization is the ability for a method to take multiple different behaviors as parameters and use them
+    internally to accomplish different behaviors.
+
+->  Behavior parameterization let you make your code more adaptive to changing requirements and saves on engineering efforts
+    in the future.
+
+->  Passing code is a way to give new behaviors as arguments to a method. But it's verbose prior to java 8.
