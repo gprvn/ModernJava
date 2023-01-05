@@ -23,7 +23,19 @@ public class StudentFilter {
         List<Student> nameStartsFromJ_new = findNameStartsFromJ_new(students, new FindNameStartsFromGivenChar());
         System.out.println("this is from the abstraction: \n"+nameStartsFromJ_new);
 
+        //Using lambda
+        List<Student> findNameStartWithJ = filterStudents(students, (Student student) -> 'J' == student.getFirstName().charAt(0));
+        System.out.println("filter using lambda: \n"+findNameStartWithJ);
 
+    }
+
+    public static List<Student> filterStudents(List<Student> students, StudentPredicate p){
+        List<Student> result = new ArrayList<>();
+        for(Student student : students){
+            if(p.filterStudents(student))
+                result.add(student);
+        }
+        return result;
     }
 
     private static List<Student> findNameStartsFromJ_new(List<Student> students, StudentPredicate p) {
