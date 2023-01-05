@@ -144,9 +144,9 @@ class Student {
         return "Student{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", age=" + age +
+                ", \nage=" + age +
                 ", score=" + score +
-                ", standard=" + standard +
+                ", \nstandard=" + standard +
                 '}';
     }
 }
