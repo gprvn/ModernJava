@@ -16,6 +16,22 @@ public class LearningLambda {
         //List green apples
         List<Apple> greenApples = filterApples(inventory, apple -> "GREEN".equalsIgnoreCase(apple.getColor()));
         System.out.println(greenApples);
+
+        Runnable r1 = () -> System.out.println("from runnable r1, using lambda");
+
+        Runnable r2 = new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("from runnable r2, anonymous class");
+            }
+        };
+        Thread t1 = new Thread(r1);
+        t1.start();
+        Thread t2 = new Thread(r2);
+        t2.start();
+
+        Thread t3 = new Thread(()-> System.out.println("from lambda runnable as function"));
+        t3.start();
     }
 
     public static List<Apple> filterApples(List<Apple> inventory, ApplePredicateInterface p){
