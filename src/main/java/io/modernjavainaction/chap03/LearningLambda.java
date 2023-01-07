@@ -1,8 +1,14 @@
 package io.modernjavainaction.chap03;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
+
 import io.modernjavainaction.chap03.Apple;
 
 public class LearningLambda {
@@ -17,8 +23,10 @@ public class LearningLambda {
         List<Apple> greenApples = filterApples(inventory, apple -> "GREEN".equalsIgnoreCase(apple.getColor()));
         System.out.println(greenApples);
 
+        // implementing run method using Lambda
         Runnable r1 = () -> System.out.println("from runnable r1, using lambda");
 
+        // implementing run method using Anonymous class implementation
         Runnable r2 = new Runnable() {
             @Override
             public void run() {
@@ -34,6 +42,15 @@ public class LearningLambda {
         t3.start();
     }
 
+    public String processFile() throws FileNotFoundException {
+        BufferedReader br = new BufferedReader(new FileReader("Understanding.txt"));
+        try {
+            return br.readLine();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static List<Apple> filterApples(List<Apple> inventory, ApplePredicateInterface p){
         List<Apple> result = new ArrayList<>();
         for(Apple apple:inventory){
@@ -43,7 +60,19 @@ public class LearningLambda {
         }
         return result;
     }
+
+    public <T> List<T> filter(List<T> list, Predicate<T> p){
+        List<T> result = new ArrayList<>();
+        for(T t : list){
+            if(p.test(t))
+                result.add(t);
+        }
+        return result;
+    }
 }
+
+//  Predicate
+
 
 interface ApplePredicateInterface {
     boolean test(Apple apple);
