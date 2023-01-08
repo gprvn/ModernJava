@@ -40,6 +40,10 @@ public class LearningLambda {
 
         Thread t3 = new Thread(()-> System.out.println("from lambda runnable as function"));
         t3.start();
+        filter(inventory, (String s) -> !s.isEmpty())
+    }
+
+    private static <T> void filter(List<Apple> inventory, Predicate<T> tPredicate) {
     }
 
     public String processFile() throws FileNotFoundException {
@@ -61,7 +65,8 @@ public class LearningLambda {
         return result;
     }
 
-    public <T> List<T> filter(List<T> list, Predicate<T> p){
+    //  Predicate
+    public static <T> List<T> filter(List<T> list, Predicate<T> p){
         List<T> result = new ArrayList<>();
         for(T t : list){
             if(p.test(t))
@@ -71,7 +76,7 @@ public class LearningLambda {
     }
 }
 
-//  Predicate
+
 
 
 interface ApplePredicateInterface {
