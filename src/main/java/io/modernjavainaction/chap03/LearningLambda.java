@@ -40,11 +40,11 @@ public class LearningLambda {
 
         Thread t3 = new Thread(()-> System.out.println("from lambda runnable as function"));
         t3.start();
-        filter(inventory, (String s) -> !s.isEmpty())
+//        filter(inventory, (String s) -> !s.isEmpty())
     }
 
-    private static <T> void filter(List<Apple> inventory, Predicate<T> tPredicate) {
-    }
+//    private static <T> void filter(List<Apple> inventory, Predicate<T> tPredicate) {
+//    }
 
     public String processFile() throws FileNotFoundException {
         BufferedReader br = new BufferedReader(new FileReader("Understanding.txt"));
