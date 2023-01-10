@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
+import java.util.function.IntPredicate;
+import java.util.function.Predicate;
 
 public class LambdaFunction {
     public static void main(String[] args) {
@@ -21,6 +23,11 @@ public class LambdaFunction {
 
         List<Double> mapStudentScore = map(students, s -> s.getScore());
         System.out.println(mapStudentScore);
+
+        IntPredicate evenNumbers = (int i) -> i % 2 == 0;
+        evenNumbers.test(1000); // TRUE -- boxing
+        Predicate<Integer> oddNumbers = (Integer i) -> i % 2 != 0;
+        oddNumbers.test(1000); //false --no boxing
 
     }
 
