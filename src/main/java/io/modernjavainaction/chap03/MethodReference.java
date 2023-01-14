@@ -2,10 +2,7 @@ package io.modernjavainaction.chap03;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.BiPredicate;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
-import java.util.function.ToIntFunction;
+import java.util.function.*;
 
 public class MethodReference {
     public static void main(String[] args) {
@@ -25,5 +22,8 @@ public class MethodReference {
         Supplier<Apple> c2 = () -> new Apple();
         Apple a2 = c2.get();
 
+        BiFunction<Integer, String, Apple> c3 = Apple::new;
+        Apple a3 = c3.apply(150,"GREEN");
+        System.out.println(c3);
     }
 }
