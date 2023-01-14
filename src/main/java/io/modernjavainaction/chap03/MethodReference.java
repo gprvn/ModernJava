@@ -25,5 +25,8 @@ public class MethodReference {
         BiFunction<Integer, String, Apple> c3 = Apple::new;
         Apple a3 = c3.apply(150,"GREEN");
         System.out.println(c3);
+
+        TriFunction<Integer, String, Integer, Apple> factory = Apple::new;
+        Apple a4 = factory.apple(150,"GREEN",1);
     }
 }
