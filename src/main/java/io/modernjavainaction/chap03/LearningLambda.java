@@ -14,13 +14,13 @@ import io.modernjavainaction.chap03.Apple;
 public class LearningLambda {
 
     public static void main(String[] args) {
-        List<Apple> inventory = Arrays.asList(new Apple(80, "GREEN"),
-                new Apple(155, "RED"),
-                new Apple(151, "GREEN"),
-                new Apple(120, "RED"));
+        List<Apple> inventory = Arrays.asList(new Apple(80, Color.GREEN),
+                new Apple(155, Color.RED),
+                new Apple(151, Color.GREEN),
+                new Apple(120, Color.RED));
 
         //List green apples
-        List<Apple> greenApples = filterApples(inventory, apple -> "GREEN".equalsIgnoreCase(apple.getColor()));
+        List<Apple> greenApples = filterApples(inventory, apple -> Color.GREEN.equals(apple.getColor()));
         System.out.println(greenApples);
 
         // implementing run method using Lambda

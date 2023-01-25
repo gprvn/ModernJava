@@ -13,13 +13,18 @@ public class Sorting {
                 new Apple(120, Color.RED)));
 
         inventory.sort(new AppleComparator());
+        System.out.println(inventory);
     }
+
+    //this is for the implementation of the sort with the method reference and the lambda expression
+
+
 }
 
 class AppleComparator implements Comparator<Apple>{
 
     @Override
     public int compare(Apple a1, Apple a2) {
-        return a1.getWeight()- a2.getWeight();
+        return a1.getWeight() - a2.getWeight();
     }
 }

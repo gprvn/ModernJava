@@ -9,10 +9,10 @@ import java.util.function.Predicate;
 
 public class LambdaPredicate {
     public static void main(String[] args) {
-        List<Apple> inventory = Arrays.asList(new Apple(80, "GREEN"),
-                new Apple(155, "RED"),
-                new Apple(151, "GREEN"),
-                new Apple(120, "RED"));
+        List<Apple> inventory = Arrays.asList(new Apple(80,Color.GREEN),
+                new Apple(155, Color.RED),
+                new Apple(151, Color.GREEN),
+                new Apple(120, Color.RED));
 
         List<Student> students = Arrays.asList(new Student("Jane","Smith",25,62.5,15),
                 new Student("John","Doe",21,67.15,11),
@@ -24,10 +24,10 @@ public class LambdaPredicate {
                 new Student("Fred","Clark",25,78.5,15),
                 new Student("Bob","Lopez",21,55.5,11));
 
-        List<Apple> greenApples = filter(inventory, (l) -> l.getColor().equalsIgnoreCase("GREEN"));
+        List<Apple> greenApples = filter(inventory, (l) -> l.getColor().equals(Color.GREEN));
         System.out.println(greenApples);
 
-        List<Apple> redApples = filter(inventory, apple -> apple.getColor().equalsIgnoreCase("RED"));
+        List<Apple> redApples = filter(inventory, apple -> apple.getColor().equals(Color.RED));
         System.out.println(redApples);
 
         List<Student> filterStudentsByAge = filter(students, student -> student.getAge() > 24);
