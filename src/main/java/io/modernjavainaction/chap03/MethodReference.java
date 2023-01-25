@@ -1,6 +1,7 @@
 package io.modernjavainaction.chap03;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.*;
 
@@ -28,5 +29,6 @@ public class MethodReference {
 
         TriFunction<Integer, String, Integer, Apple> factory = Apple::new;
         Apple a4 = factory.apple(150,"GREEN",1);
+
     }
 }

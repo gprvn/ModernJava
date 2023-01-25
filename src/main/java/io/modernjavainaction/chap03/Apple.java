@@ -2,13 +2,21 @@ package io.modernjavainaction.chap03;
 
 class Apple {
     private int weight = 0;
-    private String color = "";
+    private Color color;
+
+    private Integer slot;
 
     public Apple() {}
 
-    public Apple(int weight, String color) {
+    public Apple(int weight, Color color) {
         this.weight = weight;
         this.color = color;
+    }
+
+    public Apple(Integer weight, Color color, Integer slot){
+        this.weight = weight;
+        this.color = color;
+        this.slot = slot;
     }
 
     public int getWeight() {
@@ -19,11 +27,11 @@ class Apple {
         this.weight = weight;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
