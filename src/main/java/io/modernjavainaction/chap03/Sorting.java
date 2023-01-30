@@ -14,6 +14,12 @@ public class Sorting {
 
         inventory.sort(new AppleComparator());
         System.out.println(inventory);
+
+        //resuffling objects
+        inventory.set(1, new Apple(30, Color.RED));
+        System.out.println(inventory);
+        inventory.sort((a1,a2) -> a1.getWeight() - a2.getWeight());
+        System.out.println(inventory);
     }
 
     //this is for the implementation of the sort with the method reference and the lambda expression
